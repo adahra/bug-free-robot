@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:newdemo/DetailPage.dart';
-import 'package:newdemo/OrdersPage.dart';
+import 'package:newdemo/detail_page.dart';
 
 class Page3 extends StatefulWidget {
+  const Page3({Key key}) : super(key: key);
+
   @override
-  _Page3State createState() => _Page3State();
+  Page3State createState() => Page3State();
 }
 
-class _Page3State extends State<Page3> {
+class Page3State extends State<Page3> {
   Widget bottonContainer(
       {@required String image, @required int price, @required String name}) {
     return Container(
@@ -15,8 +16,8 @@ class _Page3State extends State<Page3> {
       width: 220,
       decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            new BoxShadow(color: Colors.black87, blurRadius: 5.0),
+          boxShadow: const [
+            BoxShadow(color: Colors.black87, blurRadius: 5.0),
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Column(
@@ -29,17 +30,17 @@ class _Page3State extends State<Page3> {
           ListTile(
             leading: Text(
               name,
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: const TextStyle(fontSize: 20, color: Colors.black),
             ),
             trailing: Text(
-              "\Rs.$price",
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              "Rs.$price",
+              style: const TextStyle(fontSize: 20, color: Colors.black),
             ),
             onTap: () {
               Navigator.push(
                   context,
-                  new MaterialPageRoute(
-                      builder: (context) => new DetailPage()));
+                  MaterialPageRoute(
+                      builder: (context) => const DetailPage()));
             },
           ),
         ],
@@ -49,7 +50,7 @@ class _Page3State extends State<Page3> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -59,9 +60,9 @@ class _Page3State extends State<Page3> {
             child: TextField(
                 decoration: InputDecoration(
                     hintText: "Search Food",
-                    hintStyle: TextStyle(color: Colors.black),
+                    hintStyle: const TextStyle(color: Colors.black),
                     // border: OutlineInputBorder(),
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.search,
                       color: Colors.black,
                     ),
@@ -101,7 +102,7 @@ class _Page3State extends State<Page3> {
           //   ),
           // ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
             height: 570,
             child: GridView.count(
               shrinkWrap: false,

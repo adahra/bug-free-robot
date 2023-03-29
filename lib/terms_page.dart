@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class PrivacyPage extends StatelessWidget {
+class TermsPage extends StatelessWidget {
+  const TermsPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     Widget titleSection = Container(
@@ -8,9 +10,9 @@ class PrivacyPage extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.only(bottom: 0),
-            child: Text(
-              'Privacy Policy',
+            padding: const EdgeInsets.only(bottom: 8),
+            child: const Text(
+              'Terms And Conditions',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
               ),
@@ -22,7 +24,7 @@ class PrivacyPage extends StatelessWidget {
 
     Widget textSection = Container(
       padding: const EdgeInsets.all(32),
-      child: Text(
+      child: const Text(
         'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
         'Alps. Situated 1,578 meters above sea level, it is one of the '
         'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
@@ -57,11 +59,11 @@ class PrivacyPage extends StatelessWidget {
       ),
     );
 
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: new Text("Privacy Policy"),
+        title: const Text("Terms And Conditions"),
       ),
       body: ListView(
         children: [

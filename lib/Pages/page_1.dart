@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:newdemo/DetailPage.dart';
-import 'package:newdemo/OrdersPage.dart';
+import 'package:newdemo/detail_page.dart';
 
 class Page1 extends StatefulWidget {
+  const Page1({Key key}) : super(key: key);
+
   @override
-  _Page1State createState() => _Page1State();
+  Page1State createState() => Page1State();
 }
 
-class _Page1State extends State<Page1> {
-  Widget bottonContainer(
-      {@required String image, @required int price, @required String name}) {
+class Page1State extends State<Page1> {
+  Widget bottonContainer({
+    String image,
+    int price,
+    String name,
+  }) {
     return Container(
       height: 270,
       width: 220,
       decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            new BoxShadow(color: Colors.black87, blurRadius: 5.0),
+          boxShadow: const [
+            BoxShadow(color: Colors.black87, blurRadius: 5.0),
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Column(
@@ -29,17 +33,15 @@ class _Page1State extends State<Page1> {
           ListTile(
             leading: Text(
               name,
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: const TextStyle(fontSize: 20, color: Colors.black),
             ),
             trailing: Text(
-              "\Rs.$price",
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              "Rs.$price",
+              style: const TextStyle(fontSize: 20, color: Colors.black),
             ),
             onTap: () {
-              Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => new DetailPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const DetailPage()));
             },
           ),
           // IconButton(
@@ -60,8 +62,7 @@ class _Page1State extends State<Page1> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      resizeToAvoidBottomPadding: false,
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -71,9 +72,9 @@ class _Page1State extends State<Page1> {
             child: TextField(
                 decoration: InputDecoration(
                     hintText: "Search Food",
-                    hintStyle: TextStyle(color: Colors.black),
+                    hintStyle: const TextStyle(color: Colors.black),
                     // border: OutlineInputBorder(),
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.search,
                       color: Colors.black,
                     ),
@@ -113,7 +114,7 @@ class _Page1State extends State<Page1> {
           //   ),
           // ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
             height: 570,
             child: GridView.count(
               shrinkWrap: false,

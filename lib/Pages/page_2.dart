@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:newdemo/DetailPage.dart';
-import 'package:newdemo/OrdersPage.dart';
 
-class Page4 extends StatefulWidget {
+class Page2 extends StatefulWidget {
+  const Page2({Key key}) : super(key: key);
+
   @override
-  _Page4State createState() => _Page4State();
+  Page2State createState() => Page2State();
 }
 
-class _Page4State extends State<Page4> {
+class Page2State extends State<Page2> {
   Widget bottonContainer(
       {@required String image, @required int price, @required String name}) {
     return Container(
@@ -15,8 +15,8 @@ class _Page4State extends State<Page4> {
       width: 220,
       decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            new BoxShadow(color: Colors.black87, blurRadius: 5.0),
+          boxShadow: const [
+            BoxShadow(color: Colors.black87, blurRadius: 5.0),
           ],
           borderRadius: BorderRadius.circular(20)),
       child: Column(
@@ -26,25 +26,15 @@ class _Page4State extends State<Page4> {
             child: Image.asset(image),
             // backgroundImage: AssetImage(image),
           ),
-          // CircleAvatar(
-          //   radius: 60,
-          //   backgroundImage: AssetImage(image),
-          // ),
           ListTile(
             leading: Text(
               name,
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              style: const TextStyle(fontSize: 20, color: Colors.black),
             ),
             trailing: Text(
-              "\Rs.$price",
-              style: TextStyle(fontSize: 20, color: Colors.black),
+              "Rs.$price",
+              style: const TextStyle(fontSize: 20, color: Colors.black),
             ),
-                onTap: () {
-              Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => new DetailPage()));
-            },
           ),
         ],
       ),
@@ -53,7 +43,7 @@ class _Page4State extends State<Page4> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -61,23 +51,26 @@ class _Page4State extends State<Page4> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: TextField(
-                decoration: InputDecoration(
-                    hintText: "Search Food",
-                    hintStyle: TextStyle(color: Colors.black),
-                    // border: OutlineInputBorder(),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    filled: true,
-                    // contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                    // enabledBorder: OutlineInputBorder(
-                    //     borderRadius: BorderRadius.circular(10.0),
-                    //     borderSide: BorderSide(color: Colors.white, width: 3.0)),
-                    fillColor: Colors.black12,
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.circular(10)))),
+              decoration: InputDecoration(
+                hintText: "Search Food",
+                hintStyle: const TextStyle(color: Colors.black),
+                // border: OutlineInputBorder(),
+                prefixIcon: const Icon(
+                  Icons.search,
+                  color: Colors.black,
+                ),
+                filled: true,
+                // contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                // enabledBorder: OutlineInputBorder(
+                //     borderRadius: BorderRadius.circular(10.0),
+                //     borderSide: BorderSide(color: Colors.white, width: 3.0)),
+                fillColor: Colors.black12,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
           ),
           // Container(
           //   height: 270,
@@ -104,54 +97,58 @@ class _Page4State extends State<Page4> {
           //     ],
           //   ),
           // ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
-            height: 570,
-            child: GridView.count(
-              shrinkWrap: false,
-              primary: false,
-              crossAxisCount: 2,
-              childAspectRatio: 0.8,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
-              children: [
-                bottonContainer(
-                  image: 'assets/mojito.png',
-                  name: 'Mojito',
-                  price: 100,
+          ListView(
+            shrinkWrap: true,
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  primary: false,
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.8,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                  children: [
+                    bottonContainer(
+                      image: 'assets/tea.png',
+                      name: 'Tea',
+                      price: 20,
+                    ),
+                    bottonContainer(
+                      image: 'assets/gtea.png',
+                      name: 'Green\nTea',
+                      price: 20,
+                    ),
+                    bottonContainer(
+                      image: 'assets/pohaa.png',
+                      name: 'Poha',
+                      price: 50,
+                    ),
+                    bottonContainer(
+                      image: 'assets/mis.png',
+                      name: 'Misal\nPav',
+                      price: 60,
+                    ),
+                    bottonContainer(
+                      image: 'assets/upma.png',
+                      name: 'Upma',
+                      price: 50,
+                    ),
+                    bottonContainer(
+                      image: 'assets/vadapav.png',
+                      name: 'Vada\npav',
+                      price: 10,
+                    ),
+                    bottonContainer(
+                      image: 'assets/masaladosa.png',
+                      name: 'Masala\nDosa',
+                      price: 80,
+                    ),
+                  ],
                 ),
-                bottonContainer(
-                  image: 'assets/bloodym.png',
-                  name: 'Bloody\nMary',
-                  price: 300,
-                ),
-                bottonContainer(
-                  image: 'assets/mangda.png',
-                  name: 'Mango\nDaiquiri',
-                  price: 140,
-                ),
-                bottonContainer(
-                  image: 'assets/oraj.png',
-                  name: 'Orange\njuice',
-                  price: 500,
-                ),
-                bottonContainer(
-                  image: 'assets/pine.png',
-                  name: 'Pine\napplejuice',
-                  price: 600,
-                ),
-                bottonContainer(
-                  image: 'assets/mangda.png',
-                  name: 'Apple\njuice',
-                  price: 600,
-                ),
-                bottonContainer(
-                  image: 'assets/appbe.png',
-                  name: 'Apple\nBerry',
-                  price: 600,
-                ),
-              ],
-            ),
+              ),
+            ],
           )
         ],
       ),

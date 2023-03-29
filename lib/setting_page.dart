@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatelessWidget {
+  const SettingPage({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: new Text("Settings"),
+        title: const Text("Settings"),
       ),
-      body: Container(
-        child: MyStatefulWidget(),
-      ),
+      body: const MyStatefulWidget(),
     );
   }
 }
 
 class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
+  const MyStatefulWidget({Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  MyStatefulWidgetState createState() => MyStatefulWidgetState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class MyStatefulWidgetState extends State<MyStatefulWidget> {
   bool _notifications = false;
 
   @override

@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:newdemo/HomePage.dart';
-import 'package:newdemo/LoginPage.dart';
-import 'package:newdemo/OrdersPage.dart';
-import 'package:newdemo/Pages/Page0.dart';
-import 'package:newdemo/PrivacyPage.dart';
-import 'package:newdemo/SettingPage.dart';
-import 'package:newdemo/TermsPage.dart';
-import 'package:newdemo/Pages/Page1.dart';
-import 'package:newdemo/Pages/Page2.dart';
-import 'package:newdemo/Pages/Page3.dart';
-import 'package:newdemo/Pages/Page4.dart';
+import 'package:newdemo/home_page.dart';
+import 'package:newdemo/login_page.dart';
+import 'package:newdemo/orders_page.dart';
+import 'package:newdemo/Pages/page_0.dart';
+import 'package:newdemo/privacy_page.dart';
+import 'package:newdemo/setting_page.dart';
+import 'package:newdemo/terms_page.dart';
+import 'package:newdemo/Pages/page_1.dart';
+import 'package:newdemo/Pages/page_2.dart';
+import 'package:newdemo/Pages/page_3.dart';
+import 'package:newdemo/Pages/page_4.dart';
 import 'package:newdemo/screen/welcome_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   final appTitle = 'Sush Kitchen';
+
+  const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: appTitle,
-      home: WelcomePage(),
+      home: const WelcomePage(),
     );
   }
 }
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final String title;
 
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,41 +45,37 @@ class MyHomePage extends StatelessWidget {
               elevation: 0,
               actions: <Widget>[
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.notifications,
                     size: 30,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new SettingPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const SettingPage()));
                   },
                 ),
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.shopping_cart,
                     size: 30,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new OrdersPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const OrdersPage()));
                   },
                 ),
               ],
               bottom: TabBar(
                   unselectedLabelColor: Colors.yellowAccent,
-                  indicatorPadding: EdgeInsets.only(left: 30, right: 30),
+                  indicatorPadding: const EdgeInsets.only(left: 30, right: 30),
                   indicator: ShapeDecoration(
                       color: Colors.redAccent,
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
-                          side: BorderSide(
+                          side: const BorderSide(
                             color: Colors.redAccent,
                           ))),
-                  tabs: [
+                  tabs: const [
                     Tab(
                       child: Align(
                         alignment: Alignment.center,
@@ -118,7 +116,7 @@ class MyHomePage extends StatelessWidget {
               //   ],
               // ),
               title: Text(title)),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
               Page1(),
               Page2(),
@@ -136,28 +134,27 @@ class MyHomePage extends StatelessWidget {
               // Important: Remove any padding from the ListView.
               padding: EdgeInsets.zero,
               children: <Widget>[
-                DrawerHeader(
+                const DrawerHeader(
                   // child: Text('FOGO FOOD'),
                   decoration: BoxDecoration(
-                      color: Colors.orange,
-                      image: DecorationImage(
-                          image: AssetImage("assets/drw.jpg"),
-                          fit: BoxFit.cover)),
+                    color: Colors.orange,
+                    image: DecorationImage(
+                        image: AssetImage("assets/drw.jpg"), fit: BoxFit.cover),
+                  ),
+                  child: null,
                 ),
                 ListTile(
                   leading: Icon(
                     Icons.home,
                     color: Colors.red.shade400,
                   ),
-                  title: Text('Home'),
+                  title: const Text('Home'),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new HomePage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const HomePage()));
                   },
                 ),
                 ListTile(
@@ -165,15 +162,13 @@ class MyHomePage extends StatelessWidget {
                     Icons.restore,
                     color: Colors.red.shade400,
                   ),
-                  title: Text('Orders'),
+                  title: const Text('Orders'),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new OrdersPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const OrdersPage()));
                   },
                 ),
                 ListTile(
@@ -181,15 +176,13 @@ class MyHomePage extends StatelessWidget {
                     Icons.account_circle,
                     color: Colors.red.shade400,
                   ),
-                  title: Text('Account'),
+                  title: const Text('Account'),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new LoginPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const LoginPage()));
                   },
                 ),
                 ListTile(
@@ -197,15 +190,13 @@ class MyHomePage extends StatelessWidget {
                     Icons.local_play,
                     color: Colors.red.shade400,
                   ),
-                  title: Text('Privacy Policy'),
+                  title: const Text('Privacy Policy'),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new PrivacyPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const PrivacyPage()));
                   },
                 ),
                 ListTile(
@@ -213,15 +204,13 @@ class MyHomePage extends StatelessWidget {
                     Icons.event,
                     color: Colors.red.shade400,
                   ),
-                  title: Text('Terms And Conditions'),
+                  title: const Text('Terms And Conditions'),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new TermsPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const TermsPage()));
                   },
                 ),
                 ListTile(
@@ -229,7 +218,7 @@ class MyHomePage extends StatelessWidget {
                     Icons.favorite,
                     color: Colors.red.shade400,
                   ),
-                  title: Text('Share Our Love'),
+                  title: const Text('Share Our Love'),
                   onTap: () {
                     // Update the state of the app
                     // ...
@@ -242,19 +231,17 @@ class MyHomePage extends StatelessWidget {
                     Icons.settings,
                     color: Colors.red.shade400,
                   ),
-                  title: Text('Settings'),
+                  title: const Text('Settings'),
                   onTap: () {
                     // Update the state of the app
                     // ...
                     // Then close the drawer
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => new SettingPage()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const SettingPage()));
                   },
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   child: Container(
                     height: 1.0,
                     width: 130.0,
